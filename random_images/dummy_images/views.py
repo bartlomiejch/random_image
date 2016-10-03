@@ -6,7 +6,7 @@ from dummy_images.models import DummyImage
 
 class ImageView(TemplateView):
     template_name = "index.html"
-
+    
     def get_context_data(self, **kwargs):
         imgs = DummyImage.objects.all()
         if len(imgs) == 0:

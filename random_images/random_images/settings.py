@@ -129,3 +129,11 @@ MEDIA_ROOT = PROJECT_ROOT + '/static/images/'
 MEDIA_URL = '/media/'
 
 THUMBNAIL_DEBUG = True
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'image_cache',
+        'TIMEOUT': 3600,
+    }
+}
