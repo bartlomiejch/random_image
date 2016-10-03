@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 from dummy_images.views import ImageView
 
 urlpatterns = [
-    url(r'^$', ImageView.as_view()),
+    url(r'^images/(?P<size>[a-zA-Z0-9-]+)/$', ImageView.as_view()),
     url(r'^admin/', admin.site.urls),
-    ]
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

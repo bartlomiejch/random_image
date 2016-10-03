@@ -1,2 +1,4 @@
-<p>Działa</p>
-<img src="{{ img.image.url }}" />
+{% load thumbnail %}
+{% thumbnail img.image size as im %}
+    <img src="{{ im.url }}" width="{{ im.width }}" heigh="{{ im.height }}">
+{% endthumbnail %}
